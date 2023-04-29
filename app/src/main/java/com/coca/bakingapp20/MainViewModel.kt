@@ -14,11 +14,10 @@ class MainViewModel: ViewModel() {
         val firstRecipe = Recipe(1, "Nutella Pie", getIngredients(), getSteps(), 1, ""
         )
         val secondRecipe = Recipe(1, "Brownies", getIngredients(), getSteps(), 1, "")
-        Log.e("dfg", "jk")
+
         val myRecipe = listOf<Recipe>(firstRecipe,secondRecipe)
 
         _myRecipe.value = myRecipe
-
     }
     fun getIngredients (): List<Ingredient>{
         val firstIngredient = Ingredient(2.0, "", "")

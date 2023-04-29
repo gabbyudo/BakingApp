@@ -3,6 +3,7 @@ package com.coca.bakingapp20
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import com.coca.bakingapp20.databinding.ActivityMainBinding
 import com.coca.bakingapp20.databinding.DetailDisplayBinding
@@ -13,15 +14,11 @@ class DetailDisplayActivity : AppCompatActivity() {
         val binding = DetailDisplayBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        val position = intent!!.getIntExtra(EXTRA_POSITION, DEFAULT_POSITION)
-        if (position == DEFAULT_POSITION) {
-
+        Log.e("dre", "juy")
+        val recipe: Recipe? = intent!!.getParcelableExtra<Recipe>(RECIPE)
+        if (recipe !== null) {
             return
-
         }
-
-
 
 
 
@@ -30,8 +27,8 @@ class DetailDisplayActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_POSITION = "extra_position"
-        private const val DEFAULT_POSITION = -1
+        const val RECIPE = "extra_position"
+        private const val DEFAULT = -1
     }
 }
 
