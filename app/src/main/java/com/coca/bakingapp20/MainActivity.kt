@@ -29,15 +29,11 @@ class MainActivity : AppCompatActivity() {
                val intent = Intent(this, DetailDisplayActivity::class.java)
                intent.putExtra(DetailDisplayActivity.RECIPE, it)
                startActivity(intent)
-
            })
            binding.recipeRV.adapter = adapter
            adapter.submitList(it)
        }
    })
         viewModel.getRecipes()
-
     }
-
-
 }

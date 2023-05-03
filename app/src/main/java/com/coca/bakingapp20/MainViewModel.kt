@@ -25,10 +25,13 @@ class MainViewModel: ViewModel() {
         val myIngredient = listOf<Ingredient>(firstIngredient, secondIngredient)
         return myIngredient
     }
+
     fun getSteps(): List<Step>{
-        val firstStep = Step(1, "","", "", "")
-        val secondStep =Step(3, "", "", "", "")
+        val firstStep = Step(1, "","hytrfds", "", "")
+        val secondStep =Step(3, "", "mkijuhg", "", "")
         val myStep = listOf<Step>(firstStep,secondStep)
         return myStep
     }
+
+
 }
