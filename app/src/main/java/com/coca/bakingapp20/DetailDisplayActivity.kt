@@ -20,7 +20,7 @@ class DetailDisplayActivity : AppCompatActivity() {
 
             val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
                 this,
-                //submitting the list to the adapter. i.e the getdescription
+               // submitting the list to the adapter. i.e the getdescription
                 android.R.layout.simple_list_item_1, getDescriptions(recipe.steps)
             )
             binding.step.adapter = adapter
@@ -29,11 +29,11 @@ class DetailDisplayActivity : AppCompatActivity() {
     }
 
     fun getDescriptions(steps: List<Step>): List<String> {
-        val descriptions = mutableListOf<String>()
-        steps.forEach {
-            descriptions.add(it.description)
+        //map is used to convert a list  to another list
+       val descriptionsMap: List<String> = steps.map {
+           it.description
         }
-        return descriptions
+        return descriptionsMap
     }
 
     companion object {
