@@ -20,8 +20,8 @@ class MainViewModel: ViewModel() {
         _myRecipe.value = myRecipe
     }
     fun getIngredients (): List<Ingredient>{
-        val firstIngredient = Ingredient(2.0, "", "")
-        val secondIngredient = Ingredient( 30.0, "", "")
+        val firstIngredient = Ingredient(2.0, "cup", "maggi")
+        val secondIngredient = Ingredient( 30.0, "plate", "salt")
         val myIngredient = listOf<Ingredient>(firstIngredient, secondIngredient)
         return myIngredient
     }

@@ -1,5 +1,6 @@
 package com.coca.bakingapp20
 
+import android.icu.util.Measure
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -18,6 +19,7 @@ class DetailDisplayActivity : AppCompatActivity() {
             binding.name.text = recipe.name
             binding.serving.text = recipe.servings.toString()
 
+
             val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
                 this,
                // submitting the list to the adapter. i.e the getdescription
@@ -25,6 +27,13 @@ class DetailDisplayActivity : AppCompatActivity() {
             )
             binding.step.adapter = adapter
             //adapter.submitList(listOf<String>()) second way
+
+            val ingredientadapter: ArrayAdapter<String> = ArrayAdapter<String>(
+                this,
+                // submitting the list to the adapter. i.e the getMappedIngredients
+                android.R.layout.simple_list_item_1, getMappedIngredients(recipe.ingredients)
+            )
+            binding.ingredient.adapter = ingredientadapter
         }
     }
 
@@ -34,6 +43,12 @@ class DetailDisplayActivity : AppCompatActivity() {
            it.description
         }
         return descriptionsMap
+    }
+    fun getMappedIngredients(ingredients: List<Ingredient>): List<String>{
+        return ingredients.map {
+            "○ ${it.quantity} ${it.measure} ${it.ingredient}"
+        }
+
     }
 
     companion object {
