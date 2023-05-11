@@ -3,6 +3,8 @@ package com.coca.bakingapp20
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
     private val repository = RecipeRepository()
@@ -12,6 +14,8 @@ class MainViewModel : ViewModel() {
         get() = _myRecipe
 
     fun getRecipes() {
-        _myRecipe.value = repository.getRecipes()
+        viewModelScope.launch {
+            _myRecipe.value = repository.getRecipes()
+        }
     }
 }
