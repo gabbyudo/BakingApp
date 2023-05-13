@@ -3,10 +3,15 @@ package com.coca.bakingapp20
 import android.icu.util.Measure
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.ListView
+import android.widget.Toast
 import androidx.annotation.StringRes
 import com.coca.bakingapp20.databinding.DetailDisplayBinding
+import com.squareup.picasso.Picasso
+import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope.Empty
 
 class DetailDisplayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +21,12 @@ class DetailDisplayActivity : AppCompatActivity() {
 
         val recipe: Recipe? = intent?.getParcelableExtra(RECIPE)
         if (recipe != null) {
+
+           val image = binding.image
+            Picasso.with(this)
+                .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXWI2scXOnCZyu63frAvg2P_V7cvaHYXKKTKYg0H4kNQ&s")
+                .into(image)
+
             binding.name.text = recipe.name
             binding.serving.text = recipe.servings.toString()
 
@@ -36,6 +47,8 @@ class DetailDisplayActivity : AppCompatActivity() {
             binding.ingredient.adapter = ingredientadapter
         }
     }
+
+
 
     fun getDescriptions(steps: List<Step>): List<String> {
         //map is used to convert a list  to another list
