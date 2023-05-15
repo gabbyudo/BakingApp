@@ -36,7 +36,7 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text=""
                 android:textSize="24sp"
@@ -55,7 +55,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/material_dynamic_tertiary95"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         app:cardCornerRadius="16dp"
 
         android:outlineAmbientShadowColor="@color/black"
