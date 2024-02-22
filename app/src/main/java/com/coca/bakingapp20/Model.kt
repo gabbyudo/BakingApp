@@ -25,7 +25,7 @@ data class Ingredient (
 data class Step (
     val id: Int,
     val shortDescription: String,
-    val description: String,
-    val videoURL: String,
-    val thumbnailURL: String
+    //val description: String,
+    val videoURL: String?,
+    //val thumbnailURL: String
 ):Parcelable

@@ -24,6 +24,7 @@ interface RecipeApiService {
     suspend fun getRecipe():
             List<Recipe>
 }
+
 object RecipeApi {
     val retrofitService : RecipeApiService =
         retrofit.create(RecipeApiService::class.java)

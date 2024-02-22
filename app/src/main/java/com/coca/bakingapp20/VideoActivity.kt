@@ -1,10 +1,8 @@
 package com.coca.bakingapp20
 
 import android.annotation.SuppressLint
-import android.net.Uri
 import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
