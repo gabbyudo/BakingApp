@@ -1,7 +1,9 @@
 package com.coca.bakingapp20
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +25,13 @@ class StepViewHolder private constructor(val binding: ListItemDetailBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(item: Step) {
         binding.step.text = item.shortDescription
+        Log.e("tagz", "outside ${item.videoURL}")
+        if (item.videoURL != null){
+            Log.e("tagz", "video${item.videoURL}")
+            binding.playButton.isVisible = true
+        } else{
+            binding.playButton.isVisible = false
+        }
     }
 
     companion object {
