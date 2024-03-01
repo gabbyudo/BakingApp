@@ -11,9 +11,6 @@ import androidx.media3.common.MediaItem
 import androidx.media3.exoplayer.ExoPlayer
 import com.coca.bakingapp20.databinding.ActivityVideoBinding
 
-//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
-
-
 class VideoActivity : AppCompatActivity() {
     private var player: ExoPlayer? = null
     private var playWhenReady = true

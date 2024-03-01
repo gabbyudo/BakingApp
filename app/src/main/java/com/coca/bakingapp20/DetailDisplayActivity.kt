@@ -31,8 +31,12 @@ class DetailDisplayActivity : AppCompatActivity() {
             binding.name.text = recipe.name
             binding.serving.text = recipe.servings.toString()
 
-            myStepAdapter = StepAdapter()
             viewModel.mySteps.observe(this, Observer {
+                myStepAdapter = StepAdapter(StepListener {
+                    val intent = Intent(this, VideoActivity::class.java)
+                    intent.putExtra(VideoActivity.BAKER, it.videoURL)
+                    startActivity(intent)
+                })
                 if (it.isNotEmpty()) {
                     binding.stepRV.adapter = myStepAdapter
                     myStepAdapter.submitList(it)

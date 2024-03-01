@@ -1,6 +1,5 @@
 package com.coca.bakingapp20
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -9,11 +8,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.coca.bakingapp20.databinding.ListItemDetailBinding
 
-class StepAdapter() : ListAdapter<Step, StepViewHolder>(StepDiffCallback()) {
+class StepAdapter(val clickListener: StepListener) : ListAdapter<Step, StepViewHolder>(StepDiffCallback()) {
 
     override fun onBindViewHolder(holder: StepViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(item, clickListener )
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StepViewHolder {
@@ -23,15 +22,17 @@ class StepAdapter() : ListAdapter<Step, StepViewHolder>(StepDiffCallback()) {
 
 class StepViewHolder private constructor(val binding: ListItemDetailBinding) :
     RecyclerView.ViewHolder(binding.root) {
-    fun bind(item: Step) {
+    fun bind(item: Step, clickListener: StepListener) {
         binding.step.text = item.shortDescription
-        Log.e("tagz", "outside ${item.videoURL}")
         if (item.videoURL != null){
-            Log.e("tagz", "video${item.videoURL}")
             binding.playButton.isVisible = true
         } else{
             binding.playButton.isVisible = false
         }
+        binding.playButton.setOnClickListener {
+            clickListener.onClick(item)
+        }
+
     }
 
     companion object {
@@ -52,6 +53,11 @@ class StepDiffCallback :
     override fun areContentsTheSame(oldItem: Step, newItem: Step): Boolean {
         return oldItem == newItem
     }
+}
+
+
+open class StepListener(val clickListener: (step: Step) -> Unit) {
+    fun onClick(step: Step) = clickListener(step)
 }
 
 
